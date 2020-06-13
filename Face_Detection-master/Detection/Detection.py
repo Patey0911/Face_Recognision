@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 
 eyes_cascade=cv2.CascadeClassifier('haarcascade_eye_tree_eyeglasses.xml')
 face_cascade=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -7,6 +8,7 @@ cap=cv2.VideoCapture(0)
 _,frame1=cap.read()
 
 while(True):
+    _, frame1 = cap.read()
     gray = cv2.cvtColor(frame1,cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.1, 4)
 
